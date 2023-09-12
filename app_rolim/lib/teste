@@ -1,0 +1,38 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+void main() {
+  runApp(MyMap());
+}
+
+class MyMap extends StatefulWidget {
+  const MyMap({super.key});
+
+  @override
+  _MyMapState createState() => _MyMapState();
+}
+
+class _MyMapState extends State<MyMap> {
+  late GoogleMapController mapController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('My Map'),
+      ),
+      body: GoogleMap(
+        mapType: MapType.normal,
+        initialCameraPosition: const CameraPosition(
+          target: LatLng(-23.550520, -46.633309),
+          zoom: 12,
+        ),
+        onMapCreated: (GoogleMapController controller) {
+          mapController = controller;
+        },
+      ),
+    );
+  }
+}
