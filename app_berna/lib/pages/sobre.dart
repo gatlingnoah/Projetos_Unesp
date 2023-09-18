@@ -2,8 +2,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 
-String stringAutores = 'Prof. Dr. Arthur \n'
+String stringAutores = 'Prof. Dr. Arthur \n' //
     'Ms Breno\n'
+    'Lucas Natan Camacho da Silva\n'
     'E-mail: @unesp.br \n'
     'Celular: (000) 0000-0000 \n';
 
@@ -53,17 +54,7 @@ class _SobreState extends State<Sobre> {
           contentPadding: EdgeInsets.all(16),
         ),
         // Lista dos Autores
-        ListTile(
-          title: Text(
-            'Desenvolvedor',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          subtitle: Text(
-            'Lucas Natan Camacho da Silva\n' 'Link Git',
-            style: TextStyle(fontSize: 16),
-          ),
-          contentPadding: EdgeInsets.all(16),
-        ),
+
         // Lista dos Autores
         ListTile(
           title: Text(

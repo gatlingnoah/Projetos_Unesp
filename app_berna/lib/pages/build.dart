@@ -1,14 +1,14 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, library_private_types_in_public_api
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
-//import 'package:app_berna/fertilizantes_screen.dart';
-import 'package:app_berna/fertilizantes_screen.dart';
+//import 'package:app_berna/NPK_screen.dart';
+import 'package:app_berna/model/fertilizantes_screen.dart';
 import 'package:app_berna/pages/equacao.dart';
 import 'package:app_berna/pages/resultado_screen.dart';
 import 'package:app_berna/widget/text_field.dart';
 import 'package:flutter/material.dart';
 
-const List<String> fertilizantes = <String>[
+const List<String> NPK = <String>[
   'N fertilizante (N)', // Ureia, Nitrato de Cálcio, MAP, Formulados
   'P fertilizante (P2O5)', // MAP, Formulados
   'K fertilizante (K2O)', // Cloreto de potássio, Formulados
@@ -23,7 +23,7 @@ const List<String> pesticidas = <String>[
   'Inseticida' // Acefato, Cloridrato de Formentanato, Metomil
 ];
 
-String fertilizantesValue = fertilizantes.first;
+String NPKValue = NPK.first;
 String pesticidasValue = pesticidas.first;
 String perdasValue = perdas.first;
 
@@ -41,8 +41,8 @@ class _CalculoState extends State<Calculo> {
   // função void para alterar o estado do text
   void calling() {
     setState(() {
-      textChange = Equacao().calculing(fertilizantesValue, pesticidasValue,
-          perdasValue, dadosController.text);
+      textChange = Equacao().calculing(
+          NPKValue, pesticidasValue, perdasValue, dadosController.text);
       // print(textChange);
     });
   }
@@ -58,6 +58,7 @@ class _CalculoState extends State<Calculo> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                // Na Tela de mobile não aparece os botões de baixo
                 SizedBox(height: 600, child: CheckboxListFertilizantes()),
 
                 const SizedBox(height: 20), // size pra distancia
@@ -71,6 +72,28 @@ class _CalculoState extends State<Calculo> {
                 ),
 
                 const SizedBox(height: 20),
+
+                TextFormField(
+                  //controller: contentController,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(
+                        //vertical: MediaQuery.of(context).size.height * .10,
+                        horizontal: 100.0),
+                    border: OutlineInputBorder(),
+                    labelText: 'Gesso',
+                    //hintText: 'Teste de textfield',
+                    fillColor: Color(0xffffffff),
+                    filled: true,
+                    //prefixIcon: Icon(Icons.topic_rounded),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'as'; //ErrorMessages.NO_CONTENT_MESSAGE;
+                    }
+                    return null;
+                  },
+                ),
+
                 // Botão Calcular
                 ElevatedButton(
                   onPressed: () {

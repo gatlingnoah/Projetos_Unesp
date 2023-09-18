@@ -1,6 +1,8 @@
 //import 'package:app_berna/pages/instrucoes.dart';
+import 'package:app_berna/pages/apresenta.dart';
+import 'package:app_berna/pages/fCobertura.dart';
 import 'package:flutter/material.dart';
-import 'package:app_berna/pages/build.dart';
+//import 'package:app_berna/pages/build.dart';
 import 'package:app_berna/pages/sobre.dart';
 
 void main() {
@@ -23,10 +25,10 @@ class AppSapeca extends StatelessWidget {
                   icon: Icon(Icons.calculate),
                   text: 'Cálculo',
                 ),
-                // Tab(
-                //   icon: Icon(Icons.calculate),
-                //   text: 'Instruções',
-                // ),
+                Tab(
+                  icon: Icon(Icons.calculate),
+                  text: 'Apresentação',
+                ),
                 Tab(
                   icon: Icon(Icons.person),
                   text: 'Sobre',
@@ -40,8 +42,8 @@ class AppSapeca extends StatelessWidget {
           body: TabBarView(
             children: <Widget>[
               // Minhas Telas
-              const Calculo(),
-              //const Instrucoes(),
+              const FertilizantesCoberturaBuild(),
+              PresentationScreen(),
               Sobre(),
             ],
           ),
