@@ -1,21 +1,19 @@
 // ignore_for_file: prefer_const_constructors, constant_identifier_names, non_constant_identifier_names
 
 import 'package:app_berna/pages/resultado_screen.dart';
-import 'package:app_berna/widget/drop_teste.dart';
 import 'package:app_berna/widget/dropdown_irrigacao.dart';
 import 'package:app_berna/widget/text_field.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as developer;
 
 const List<String> Irrigacao = <String>[
-  'Irrigação Tipo G',
-  'Irrigação Tipo J',
-  'Irrigação Tipo A'
+  'Elétrica',
+  'Diesel',
+  'Biscombustivel',
+  'Eólica'
 ];
-const List<String> TESTE = <String>['Marca 1', 'Marca 2', 'Marca 3'];
 
 String IrrigacaoValue = Irrigacao.first;
-String TESTEValue = TESTE.first;
 
 class MaquinasBuild extends StatefulWidget {
   const MaquinasBuild({super.key});
@@ -30,7 +28,7 @@ class _MaquinasBuildState extends State<MaquinasBuild> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Máquinarios'),
+        title: const Text('Máquinarios - Operações'),
         centerTitle: true,
       ),
       body: Card(
@@ -42,7 +40,7 @@ class _MaquinasBuildState extends State<MaquinasBuild> {
             child: Column(
               children: [
                 Text(
-                  "Litros de Diesel",
+                  "Informe a quantidade de diesel nas operações com maquinas e irrigação",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -51,167 +49,171 @@ class _MaquinasBuildState extends State<MaquinasBuild> {
                   overflow: TextOverflow.ellipsis,
                 ),
 
-                //const Divider(height: 15),
-                // Tratores (90 a 210 cv), arado, subsolador, rolo nivelador,
-                // grade, adubadora, pulverizador e colhedora.
-
-                // Título para Implementos
-                const SizedBox(height: 10.0),
-                const Row(
-                  children: [
-                    Icon(
-                      Icons.agriculture,
-                      size: 24.0,
-                      color: Colors.deepPurple,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Implementos",
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-
-                // Linha: Tratores (90 a 210 cv) Grade e Arado
-                const SizedBox(height: 10.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Grade',
-                        hintText: 'L/ha',
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
-                    SizedBox(width: 5.0),
-                    Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Arado',
-                        hintText: 'L/ha',
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
-                  ],
-                ),
-
-                // Subsolador, Rolo nivelador
-                const SizedBox(height: 10.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Subsolador',
-                        hintText: 'L/ha',
-                        //prefixIcon: Icons.agriculture, Hidroxido de Cobre
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
-
-                    // Espaço entre os Expanded
-                    SizedBox(width: 5.0),
-
-                    Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Rolo nivelador',
-                        hintText: 'L/ha',
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
-                  ],
-                ),
-
-                // Título para Máquinas
-                const SizedBox(height: 10.0),
-                const Row(
-                  children: [
-                    Icon(
-                      Icons.agriculture,
-                      size: 24.0,
-                      color: Colors
-                          .greenAccent, // Altere a cor conforme necessário
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Máquinas",
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-
-                // Row Adubadora, Pulverizador
+                // Row Preparo de solo
                 const SizedBox(height: 15.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Preparo de solo:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: CustomTextField(
                         controller: TextEditingController(),
-                        labelText: 'Adubadora',
-                        hintText: 'L/ha',
-                        //prefixIcon: Icons.agriculture,
+                        labelText: '',
+                        hintText: '',
                         keyboardType: TextInputType.number,
                       ),
                     ),
-
-                    // Espaço entre os Expanded
-                    SizedBox(width: 5.0),
-
                     Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Pulverizador',
-                        hintText: 'L/ha',
-                        keyboardType: TextInputType.number,
+                      child: Text(
+                        " L/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
                 ),
 
-                // Row Colhedora
+                // Row Adubação de plantio e cobertura
                 const SizedBox(height: 15.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Adubação de plantio e cobertura:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: CustomTextField(
                         controller: TextEditingController(),
-                        labelText: 'Colhedora',
-                        hintText: 'L/ha',
-                        //prefixIcon: Icons.agriculture,
+                        labelText: '',
+                        hintText: '',
                         keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " L/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
                 ),
 
-                // Row Tratores (90 a 210 cv)
+                // Row Controle fitossanitario e ad. foliar
                 const SizedBox(height: 15.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Controle fitossanitario e ad. foliar:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: CustomTextField(
-                        controller: dadosController,
-                        labelText: 'Tratores (90 a 210 cv)',
-                        hintText: 'L/ha',
-                        //prefixIcon: Icons.agriculture,
+                        controller: TextEditingController(),
+                        labelText: '',
+                        hintText: '',
                         keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " L/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
                 ),
+
+                // Row Coheita
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Coheita:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: CustomTextField(
+                        controller: TextEditingController(),
+                        labelText: '',
+                        hintText: '',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " L/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Row Transporte para packing house
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Transporte para packing house:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: CustomTextField(
+                        controller: TextEditingController(),
+                        labelText: '',
+                        hintText: '',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " L/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+
                 // Título para Irrigação
                 const SizedBox(height: 10.0),
                 const Row(
@@ -241,46 +243,6 @@ class _MaquinasBuildState extends State<MaquinasBuild> {
                       child: DropdownIrrigacao(),
                     ),
                     SizedBox(width: 5.0),
-                  ],
-                ),
-
-                // Título para TESTE
-                const SizedBox(height: 10.0),
-                const Row(
-                  children: [
-                    Icon(
-                      Icons.access_alarm_outlined,
-                      size: 24.0,
-                      color: Colors.blueAccent,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "TESTE",
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-
-                // Linha: Tratores (90 a 210 cv) Grade e Arado
-                const SizedBox(height: 10.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: DropdownTESTE(),
-                    ),
-                    SizedBox(width: 5.0),
-                    Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Ureia',
-                        hintText: 'L/ha',
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
                   ],
                 ),
 

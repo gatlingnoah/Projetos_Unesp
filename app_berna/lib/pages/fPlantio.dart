@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, constant_identifier_names, non_constant_identifier_names
 
-import 'package:app_berna/pages/fPesticidas.dart';
+import 'package:app_berna/pages/fCobertura.dart';
 import 'package:app_berna/widget/dropdown_npk.dart';
 import 'package:app_berna/widget/text_field.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class _FertilizantesPlantioBuildState extends State<FertilizantesPlantioBuild> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Fertilizantes Plantio'),
+        title: const Text('Cálculos'),
         centerTitle: true,
       ),
       body: Card(
@@ -42,7 +42,13 @@ class _FertilizantesPlantioBuildState extends State<FertilizantesPlantioBuild> {
             child: Column(
               children: [
                 Text(
-                  "Dose por Hectare",
+                  "Fertilizantes no Plantio",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  "Dose (kg/Ha)",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -51,63 +57,272 @@ class _FertilizantesPlantioBuildState extends State<FertilizantesPlantioBuild> {
                   overflow: TextOverflow.ellipsis,
                 ),
 
-                //const Divider(height: 15),
-
-                // Linha: Ureia e Nitrato de Cálcio
-                const SizedBox(height: 10.0),
+                // Row Ureia
+                const SizedBox(height: 15.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Ureia:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: CustomTextField(
                         controller: TextEditingController(),
-                        labelText: 'Ureia',
-                        hintText: 'k/ha',
+                        labelText: '',
+                        hintText: '',
                         keyboardType: TextInputType.number,
                       ),
                     ),
-                    SizedBox(width: 5.0),
                     Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Nitrato de Cálcio',
-                        hintText: 'k/ha',
-                        keyboardType: TextInputType.number,
+                      child: Text(
+                        " Kg/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
                 ),
 
-                // Row Cloreto de potássio e Drowdown NPK
-                const SizedBox(height: 10.0),
+                // Row Nitrato de Cálcio
+                const SizedBox(height: 15.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Nitrato de Cálcio:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: CustomTextField(
                         controller: TextEditingController(),
-                        labelText: 'Cloreto de potássio',
-                        hintText: 'k/ha',
+                        labelText: '',
+                        hintText: '',
                         keyboardType: TextInputType.number,
                       ),
                     ),
+                    Expanded(
+                      child: Text(
+                        " Kg/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
 
-                    // Espaço entre os Expanded
-                    SizedBox(width: 5.0),
-
+                // Row Nitrato de Potássio
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Nitrato de Potássio:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
                     Expanded(
                       child: CustomTextField(
                         controller: TextEditingController(),
-                        labelText: 'MAP',
-                        hintText: 'k/ha',
-                        //prefixIcon: Icons.agriculture,
+                        labelText: '',
+                        hintText: '',
                         keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " Kg/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Row Cloreto de Potássio
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Cloreto de Potássio:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: CustomTextField(
+                        controller: TextEditingController(),
+                        labelText: '',
+                        hintText: '',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " Kg/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Row MAP
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "MAP:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: CustomTextField(
+                        controller: TextEditingController(),
+                        labelText: '',
+                        hintText: '',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " Kg/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Row Superfosfato Simples
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Superfosfato Simples:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: CustomTextField(
+                        controller: TextEditingController(),
+                        labelText: '',
+                        hintText: '',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " Kg/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Row Superfosfato Triplo
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Superfosfato Triplo:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: CustomTextField(
+                        controller: TextEditingController(),
+                        labelText: '',
+                        hintText: '',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " Kg/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Row Esterco Bovino
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    SizedBox(
+                      width: 105,
+                      child: Expanded(
+                        child: Text(
+                          "Esterco Bovino:",
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: CustomTextField(
+                        controller: TextEditingController(),
+                        labelText: '',
+                        hintText: '',
+                        keyboardType: TextInputType.number,
+                      ),
+                    ),
+                    Expanded(
+                      child: Text(
+                        " Kg/Ha",
+                        style: TextStyle(
+                            fontSize: 17, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
                 ),
 
                 // Linha Dropdown NPK
+                const SizedBox(height: 15.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: const [
@@ -120,60 +335,6 @@ class _FertilizantesPlantioBuildState extends State<FertilizantesPlantioBuild> {
                   ],
                 ),
 
-                // Espaço
-                const SizedBox(height: 15.0),
-
-                // Título para Corretivos
-                const Row(
-                  children: [
-                    Icon(
-                      Icons.analytics_outlined,
-                      size: 24.0,
-                      color: Colors.green,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Corretivos",
-                      style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ],
-                ),
-
-                // Row Gesso e Calagem
-                const SizedBox(height: 15.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Gesso',
-                        hintText: 'k/ha',
-                        //prefixIcon: Icons.agriculture,
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
-
-                    // Espaço entre os Expanded
-                    SizedBox(width: 5.0),
-
-                    Expanded(
-                      child: CustomTextField(
-                        controller: TextEditingController(),
-                        labelText: 'Calagem',
-                        hintText: 'k/ha',
-                        keyboardType: TextInputType.number,
-                      ),
-                    ),
-                  ],
-                ),
-
-                // Row MAP
-                const SizedBox(height: 15.0),
-
                 // Botão Proximo Page
                 SizedBox(height: 15.0),
                 ElevatedButton(
@@ -181,21 +342,14 @@ class _FertilizantesPlantioBuildState extends State<FertilizantesPlantioBuild> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            FertilizantesPesticidasBuild(), // chamar a build Plantio
-                      ),
+                          // chamar a build Plantio
+                          builder: (context) => FertilizantesCoberturaBuild()),
                     );
                   },
                   child: Wrap(
                     children: const <Widget>[
-                      Icon(
-                        Icons.dashboard_customize_sharp,
-                        //color: Colors.pink,
-                        size: 24.0,
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
+                      Icon(Icons.dashboard_customize_sharp, size: 24.0),
+                      SizedBox(width: 10),
                       Text("Proximo", style: TextStyle(fontSize: 17)),
                     ],
                   ),

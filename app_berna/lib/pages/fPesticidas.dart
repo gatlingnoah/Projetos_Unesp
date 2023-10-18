@@ -18,7 +18,7 @@ class _FertilizantesPesticidasBuildState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pesticidas'),
+        title: const Text('Cálculos'),
         centerTitle: true,
       ),
       body: Card(
@@ -30,7 +30,13 @@ class _FertilizantesPesticidasBuildState
             child: Column(
               children: [
                 Text(
-                  "Dose por Hectare",
+                  "Pesticidas",
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  "Dose (kg/Ha)",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -38,7 +44,6 @@ class _FertilizantesPesticidasBuildState
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                 ),
-
                 //const Divider(height: 15),
 
                 // Título para Triazinona e Metribuzim
@@ -151,6 +156,7 @@ class _FertilizantesPesticidasBuildState
                     ),
                   ],
                 ),
+
                 // Título para Inseticida
                 const SizedBox(height: 15.0),
                 const Row(
@@ -212,6 +218,26 @@ class _FertilizantesPesticidasBuildState
                         hintText: 'k/ha',
                         //prefixIcon: Icons.agriculture,
                         keyboardType: TextInputType.number,
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Título para Biológicos
+                const SizedBox(height: 15.0),
+                const Row(
+                  children: [
+                    Icon(
+                      Icons.analytics_outlined,
+                      size: 24.0,
+                      color: Colors.green, // Altere a cor conforme necessário
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      "Biológico",
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],

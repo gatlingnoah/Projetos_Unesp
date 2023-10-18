@@ -1,31 +1,31 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names, library_private_types_in_public_api, constant_identifier_names
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
-import 'package:app_berna/pages/fmaquinas.dart';
+import 'package:app_berna/pages/fCorretivos.dart';
 import 'package:flutter/material.dart';
 
-// Dropdown TESTE
-class DropdownTESTE extends StatefulWidget {
-  const DropdownTESTE({super.key});
+class DropdownNPK extends StatefulWidget {
+  const DropdownNPK({super.key});
 
   @override
-  State<DropdownTESTE> createState() => _DropdownTESTEState();
+  State<DropdownNPK> createState() => _DropdownNPKState();
 }
 
-class _DropdownTESTEState extends State<DropdownTESTE> {
+class _DropdownNPKState extends State<DropdownNPK> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
-      value: TESTEValue,
+      value: fosfatoValue,
       elevation: 4,
+      autofocus: false,
       isExpanded: true,
-      decoration: InputDecoration(labelText: 'TESTE'),
+      decoration: InputDecoration(labelText: 'Fosfato'),
       onChanged: (String? value) {
         setState(() {
-          TESTEValue = value!;
+          fosfatoValue = value!;
         });
       },
-      items: TESTE.map<DropdownMenuItem<String>>((String value) {
+      items: fosfato.map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),

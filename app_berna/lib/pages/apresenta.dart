@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, avoid_unnecessary_containers
 
+import 'package:app_berna/pages/fCorretivos.dart';
+import 'package:app_berna/pages/sobre.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -17,45 +19,72 @@ class PresentationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        // decoration: BoxDecoration(
-        //   // Use uma imagem de fundo relacionada ao meio ambiente aqui.
-        //   image: DecorationImage(
-        //     image: AssetImage('assets/environment_bg.jpg'),
-        //     fit: BoxFit.cover,
-        //   ),
-        // ),
+      body: Card(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'Emissões de Gases de Efeito Estufa',
-              style: TextStyle(
-                fontSize: 28.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+            Card(
+                child: Text(
+                    ' Cálculos de emissões de gases de efeito estufa, e de demanda de energia pela cultura Batata',
+                    style: TextStyle(
+                        fontSize: 26.0, fontWeight: FontWeight.bold))),
+            Card(
+              child: SizedBox(
+                height: 400,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Image.asset('assets/images/logo_unesp.png'),
+                    ),
+                    Expanded(
+                      child: Image.asset('assets/images/logo_grupo.png'),
+                    ),
+                    Expanded(
+                      child: Image.asset('assets/images/logo_pv.png'),
+                    ),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 20.0),
-            Text(
-              'Seja um defensor do meio ambiente! Nosso aplicativo permite que você estime e '
-              'controle suas emissões pessoais de gases de efeito estufa. Juntos, '
-              'podemos criar um futuro mais sustentável.',
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 30.0),
-            ElevatedButton(
-              onPressed: () {
-                // Navegue para a próxima tela do aplicativo aqui.
-              },
-              child: Text(
-                'Começar',
-                style: TextStyle(fontSize: 18.0),
-              ),
+            Container(height: 20.0),
+            Container(height: 30.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CorretivosBuild(),
+                      ),
+                    );
+                  },
+                  child: Wrap(
+                    children: const <Widget>[
+                      Icon(Icons.dashboard_customize_sharp, size: 24.0),
+                      SizedBox(width: 10),
+                      Text("Cálculos", style: TextStyle(fontSize: 17)),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            // chamar a build sobre
+                            builder: (context) => Sobre()));
+                  },
+                  child: Wrap(
+                    children: const <Widget>[
+                      Icon(Icons.supervised_user_circle, size: 24.0),
+                      SizedBox(width: 10),
+                      Text("Sobre", style: TextStyle(fontSize: 17)),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ],
         ),

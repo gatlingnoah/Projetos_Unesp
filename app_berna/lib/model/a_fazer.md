@@ -9,8 +9,11 @@
 - [x] fertilizantes cobertura -- falta o botão
 - [x] build classe fertilizantes Plantio
 - [x] build classe irrigação + Maquinas + Pesticidas
+- [x] colocar a logo da unesp
 
 #### ANDAMENTO
+- [ ] Check list do fosfato /fcorretivos.dart
+
 
 - [ ] melhorar o layout
 - [ ]  Trabalhar no calculo
@@ -18,8 +21,6 @@
     - [ ] Perguntar ao professor Sobre
 
 - [ ] Arrumar o Sobre
-
-- [ ] colocar a logo da unesp
 
 #### FUNCIONAMENTO DO 'CheckboxListTile' COM STATUS
 ~~~

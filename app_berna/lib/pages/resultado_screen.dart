@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
@@ -92,17 +93,47 @@ class _graficoState extends State<_grafico> {
         title: const Text('Resultados'),
       ),
       body: Scrollbar(
-        child: SfCartesianChart(
-          primaryXAxis: CategoryAxis(),
-          primaryYAxis: NumericAxis(minimum: 0, maximum: 40, interval: 10),
-          tooltipBehavior: _tooltip,
-          series: <ChartSeries<_ChartData, String>>[
-            ColumnSeries<_ChartData, String>(
-                dataSource: data,
-                xValueMapper: (_ChartData data, _) => data.x,
-                yValueMapper: (_ChartData data, _) => data.y,
-                name: 'Informação',
-                color: const Color.fromRGBO(45, 118, 179, 1))
+        child: Column(
+          children: [
+            Expanded(
+              child: SfCartesianChart(
+                primaryXAxis: CategoryAxis(),
+                primaryYAxis:
+                    NumericAxis(minimum: 0, maximum: 40, interval: 10),
+                tooltipBehavior: _tooltip,
+                series: <ChartSeries<_ChartData, String>>[
+                  ColumnSeries<_ChartData, String>(
+                      dataSource: data,
+                      xValueMapper: (_ChartData data, _) => data.x,
+                      yValueMapper: (_ChartData data, _) => data.y,
+                      name: 'Informação',
+                      color: const Color.fromRGBO(45, 118, 179, 1))
+                ],
+              ),
+            ),
+            Expanded(
+              child: PieChart(
+                PieChartData(
+                  sections: [
+                    PieChartSectionData(
+                      color: Colors.blue,
+                      value: 10, // Substitua pelo valor desejado
+                      title: 'Maquinários',
+                    ),
+                    PieChartSectionData(
+                      color: Colors.green,
+                      value: 60, // Substitua pelo valor desejado
+                      title: 'Fertilizantes',
+                    ),
+                    PieChartSectionData(
+                      color: Colors.red,
+                      value: 20, // Substitua pelo valor desejado
+                      title: 'Irrigaçao',
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -21,53 +21,61 @@ class _SobreState extends State<Sobre> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Sobre',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
         body: ListView(
-      children: [
-        Padding(padding: EdgeInsets.all(8)),
-        Center(
-          child: const Text.rich(
-            TextSpan(
-              text: '',
-              style: TextStyle(
-                fontSize: 16,
-              ), // default text style
-              children: <TextSpan>[
-                TextSpan(
-                    text: '', style: TextStyle(fontWeight: FontWeight.bold)),
+          children: [
+            Padding(padding: EdgeInsets.all(8)),
+            Center(
+              child: const Text.rich(
                 TextSpan(
                   text: '',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ), // default text style
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: '',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    TextSpan(
+                      text: '',
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
-        // Lista dos Autores
-        ListTile(
-          title: Text(
-            'Autores',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          subtitle: Text(
-            stringAutores,
-            style: TextStyle(fontSize: 16),
-          ),
-          contentPadding: EdgeInsets.all(16),
-        ),
-        // Lista dos Autores
+            // Lista dos Autores
+            ListTile(
+              title: Text(
+                'Autores',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                stringAutores,
+                style: TextStyle(fontSize: 16),
+              ),
+              contentPadding: EdgeInsets.all(16),
+            ),
+            // Lista dos Autores
 
-        // Lista dos Autores
-        ListTile(
-          title: Text(
-            'Realização',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          subtitle: Text(
-            stringRealizacao,
-            style: TextStyle(fontSize: 16),
-          ),
-          contentPadding: EdgeInsets.all(16),
-        ),
-      ],
-    ));
+            // Lista dos Autores
+            ListTile(
+              title: Text(
+                'Realização',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(
+                stringRealizacao,
+                style: TextStyle(fontSize: 16),
+              ),
+              contentPadding: EdgeInsets.all(16),
+            ),
+          ],
+        ));
   }
 }
