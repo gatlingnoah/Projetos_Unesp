@@ -1,0 +1,322 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animações personalizadas */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Classes personalizadas */
+.class-card-selected {
+  animation: pulse-glow 2s infinite;
+  border: 2px solid #3b82f6;
+}
+
+.class-card-hover {
+  transition: all 0.3s ease;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.nation-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.nation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.nation-card-selected {
+  border: 3px solid #3b82f6;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.1));
+}
+
+.fragment-orb {
+  animation: float 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.fragment-orb:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.battle-result-victory {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  animation: shimmer 2s infinite;
+  background-size: 200% 100%;
+}
+
+.battle-result-defeat {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.energy-bar {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  transition: width 0.5s ease;
+}
+
+.experience-bar {
+  background: linear-gradient(90deg, #8b5cf6, #7c3aed);
+  transition: width 0.5s ease;
+}
+
+.divine-class {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24);
+  background-size: 200% 200%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.cosmic-background {
+  background: linear-gradient(135deg, #1e1b4b, #312e81, #1e3a8a, #1e40af);
+  background-size: 400% 400%;
+  animation: cosmic-drift 20s ease infinite;
+}
+
+@keyframes cosmic-drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.stat-bar {
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.stat-bar-speed {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+.stat-bar-defense {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+}
+
+.stat-bar-attack {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.market-item {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.market-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.evolution-card {
+  transition: all 0.3s ease;
+  border-radius: 16px;
+}
+
+.evolution-card-available {
+  border: 2px solid #10b981;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+}
+
+.evolution-card-unavailable {
+  border: 2px solid #6b7280;
+  background: rgba(107, 114, 128, 0.1);
+}
+
+.action-button {
+  transition: all 0.3s ease;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.action-button:hover::before {
+  left: 100%;
+}
+
+.resource-counter {
+  background: linear-gradient(135deg, #1f2937, #374151);
+  border: 1px solid #4b5563;
+  border-radius: 12px;
+  padding: 8px 16px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.tab-content {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade melhorada */
+@media (max-width: 768px) {
+  .class-card {
+    padding: 12px;
+  }
+  
+  .nation-card {
+    padding: 16px;
+  }
+  
+  .action-button {
+    height: 80px;
+    font-size: 14px;
+  }
+  
+  /* Melhorias específicas para mobile */
+  .mobile-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .mobile-text {
+    font-size: 14px;
+  }
+  
+  .mobile-title {
+    font-size: 18px;
+  }
+  
+  .mobile-button {
+    min-height: 48px;
+    font-size: 16px;
+    padding: 12px 16px;
+  }
+  
+  .mobile-card {
+    margin: 8px;
+    border-radius: 12px;
+  }
+  
+  .mobile-tab {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+  
+  /* Touch-friendly elements */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, select, textarea {
+    font-size: 16px;
+  }
+  
+  /* Better spacing for mobile */
+  .mobile-spacing {
+    padding: 16px;
+    margin: 8px 0;
+  }
+  
+  /* Improved scrolling */
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .landscape-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .landscape-compact {
+    padding: 8px;
+    margin: 4px 0;
+  }
+}
+
+/* Very small screens (older phones) */
+@media (max-width: 320px) {
+  .tiny-screen {
+    font-size: 12px;
+  }
+  
+  .tiny-button {
+    min-height: 40px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .tiny-card {
+    padding: 8px;
+    margin: 4px;
+  }
+}
+
+/* Efeitos especiais para classes divinas */
+.divine-aura {
+  position: relative;
+}
+
+.divine-aura::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24, #f59e0b);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: divine-glow 3s ease infinite;
+}
+
+@keyframes divine-glow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+

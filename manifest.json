@@ -1,0 +1,35 @@
+{
+  "name": "Color Class Warriors - Multiverse Edition",
+  "short_name": "Color Warriors",
+  "description": "Jogo de estratégia com classes por cores em um multiverso épico",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1e1b4b",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/yellow-speed-icon.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/blue-defense-icon.png", 
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/red-attack-icon.png",
+      "sizes": "64x64", 
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "pt-BR",
+  "scope": "/",
+  "prefer_related_applications": false
+}
+
